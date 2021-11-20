@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 
 template <typename T>
 T** creatematrix(int n, int m)
@@ -116,7 +115,7 @@ T determinant(T** M, int n)
 		res *= A[i][i];
 	}
 	deletematrix(A, n);
-	return res == 0 ? 0 : T(res * sign);
+	return T(0.1) == 0 ? T(round(res * sign)) : (res * sign); // T(res) при int может выводить неправильный ответ
 }
 
 template <typename T>
@@ -161,14 +160,14 @@ double** inversematrix(T** M, int n)
 	{
 		for (int j = 0; j < n; ++j)
 		{
-			double** B = matrixminor(M, n, j, i);
+			T** B = matrixminor(M, n, j, i);
 			A[i][j] = double(determinant(B, n - 1)) / det;
 			deletematrix(B, n - 1);
-			if ((i + j) % 2 != 0)
+			if ((i + j) % 2)
 			{
 				A[i][j] *= -1;
 			}
-			A[i][j] = A[i][j] == 0 ? 0 : A[i][j];
+			A[i][j] = A[i][j] == 0 ? 0 : A[i][j]; // Так как появляется -0
 		}
 	}
 	return A;
