@@ -115,7 +115,7 @@ T determinant(T** M, int n)
 		res *= A[i][i];
 	}
 	deletematrix(A, n);
-	return T(0.1) == 0 ? T(round(res * sign)) : (res * sign); // T(res) при int может выводить неправильный ответ
+	return T(0.1) == 0 ? T(round(res * sign)) : (res * sign); // T(res), T = int provides wrong answer
 }
 
 template <typename T>
@@ -167,7 +167,7 @@ double** inversematrix(T** M, int n)
 			{
 				A[i][j] *= -1;
 			}
-			A[i][j] = A[i][j] == 0 ? 0 : A[i][j]; // Так как появляется -0
+			A[i][j] = A[i][j] == 0 ? 0 : A[i][j]; // -0 appears sometimes
 		}
 	}
 	return A;
