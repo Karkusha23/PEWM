@@ -17,7 +17,7 @@ T** inputmatrix(int n, int m)
 	T** M = creatematrix<T>(n, m);
 	for (int i = 0; i < n; ++i)
 	{
-		for (int j = 0; j < n; ++j)
+		for (int j = 0; j < m; ++j)
 		{
 			std::cout << '(' << i + 1 << ", " << j + 1 << "): ";
 			std::cin >> M[i][j];
