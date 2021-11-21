@@ -95,6 +95,7 @@ T determinant(T** M, int n)
 			}
 			if (b)
 			{
+				deletematrix(A, n);
 				return 0;
 			}
 			swapcolumns(A, n, k, k1);
