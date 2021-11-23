@@ -146,7 +146,7 @@ void writerow(std::ofstream& of, int a[16])
 		{
 			return;
 		}
-		if (a[i] < 30)
+		if (a[i] < 32)
 		{
 			of.put(' ');
 		}
