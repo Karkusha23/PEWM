@@ -12,13 +12,13 @@ int main()
 {
 	const char* ifname = "input.txt";
 	const char* ofname = "output.txt";
-	std::ifstream infile(ifname);
+	std::ifstream infile(ifname, std::ios_base::binary);
 	if (!infile)
 	{
 		std::cout << "Can not open file to read" << std::endl;
 		return 1;
 	}
-	std::ofstream outfile(ofname);
+	std::ofstream outfile(ofname, std::ios_base::binary);
 	if (!outfile)
 	{
 		infile.close();
