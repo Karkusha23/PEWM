@@ -33,14 +33,17 @@ int main()
 
 void shiftarray(int* M, int n, int k)
 {
-    int* A = new int[n];
-    for (int i = 0; i < n; ++i)
+    k %= n;
+    for (int i = 0, j = k - 1; i < j; ++i, --j)
     {
-        A[i] = M[(i + k) % n];
+        std::swap(M[i], M[j]);
     }
-    for (int i = 0; i < n; ++i)
+    for (int i = k, j = n - 1; i < j; ++i, --j)
     {
-        M[i] = A[i];
+        std::swap(M[i], M[j]);
     }
-    delete[] A;
+    for (int i = 0, j = n - 1; i < j; ++i, --j)
+    {
+        std::swap(M[i], M[j]);
+    }
 }
