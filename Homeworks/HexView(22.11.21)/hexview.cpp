@@ -120,20 +120,17 @@ void writetable(std::ofstream& of, int a[16])
 		}
 	}
 	of << " |  ";
-	if (a[8] != -2)
+	for (int i = 8; i < 16; ++i)
 	{
-		for (int i = 8; i < 16; ++i)
+		if (a[i] == -2)
 		{
-			if (a[i] == -2)
-			{
-				of << "   ";
-			}
-			else
-			{
-				writedigit(of, a[i] >> 4);
-				writedigit(of, a[i] % 16);
-				of.put(' ');
-			}
+			of << "   ";
+		}
+		else
+		{
+			writedigit(of, a[i] >> 4);
+			writedigit(of, a[i] % 16);
+			of.put(' ');
 		}
 	}
 }
