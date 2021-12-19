@@ -1,7 +1,7 @@
 @echo off
 chcp 1251 >nul
 
-for /l %%i in (33,1,126) do (
+for /l %%i in (33,1,255) do (
 	call :tab %%i
 )
 
